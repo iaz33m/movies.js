@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import Navbar from './Navbar';
+import Link from 'next/link';
 
 const MainLayout = (props) => {
 
