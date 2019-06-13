@@ -2,7 +2,9 @@
     "version": 2,
     "alias": "firstapp-project",
     "name": "firstapp-project",
-    "builds": [
-        { "src": "next.config.js", "use": "@now/next" }
+    "builds": [{ "src": "package.json", "use": "@now/next" }],
+    "routes":[
+        {"src": "/movie/(?<id>.+)", "dest": "/movie?id=$id"},
+        {"src": "/(.*)", "dest": "/$1"}
     ]
 }

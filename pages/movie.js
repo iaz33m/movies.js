@@ -1,15 +1,13 @@
-import { withRouter } from 'next/router';
 import _ from 'lodash';
+import fetch from 'isomorphic-unfetch';
 import MainLayout from '../layouts/main-layout';
 import MovieListItem from '../components/Movie/MovieListItem';
 
 const Movie = (props) => {
     
-    const {id} = props.router.query;
+    const {movie} = props;
 
-    let m = null;
-
-    if(!m){
+    if(!movie){
         return  <MainLayout><p>404 - Movie Not Found</p></MainLayout>
     }
 
@@ -18,11 +16,20 @@ const Movie = (props) => {
             <h1>Movie</h1>
             <hr/>
             <div className="row">
-                <MovieListItem movie={m}/>
+                <MovieListItem movie={movie}/>
             </div>
         </MainLayout>
     );
 };
 
+Movie.getInitialProps = async function(context) {
+    const { id } = context.query;
+    const res = await fetch(`https://yts.lt/api/v2/movie_details.json?movie_id=${id}`);
+    const data = await res.json();
+    const {movie} = data.data;
+    return {
+      movie
+    };
+};
 
-export default withRouter(Movie);
+export default Movie;

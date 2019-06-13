@@ -21,6 +21,7 @@ Movies.getInitialProps = async function() {
   const res = await fetch('https://yts.lt/api/v2/list_movies.json');
   const data = await res.json();
   const movies = data.data.movies;
+  console.log("Total Movies",movies.length);
   return {
     movies
   };
