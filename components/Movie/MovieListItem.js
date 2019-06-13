@@ -1,7 +1,7 @@
 import Link from 'next/link';
 
-const PostListItem = (props) => {
-    const {id,title,slug,medium_cover_image,summary} = props.post;
+const MovieListItem = (props) => {
+    const {id,title,medium_cover_image,summary} = props.movie;
     const style = {
         marginBottom:'10px'
     };
@@ -12,11 +12,11 @@ const PostListItem = (props) => {
             <div className="card-body">
                 <h5 className="card-title">{title}</h5>
                 <p className="card-text">{summary.substring(0, 110)}...</p>
-                <Link as={`/movie/${slug}`} href={`/movie?slug=${slug}`}><a className="btn btn-primary">Learn More</a></Link>
+                <Link as={`/movie/${id}`} href={`/movie?id=${id}`}><a className="btn btn-primary">Learn More</a></Link>
             </div>
         </div>
       </div>
     );
 };
 
-export default PostListItem;
+export default MovieListItem;

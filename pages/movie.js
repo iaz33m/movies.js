@@ -1,15 +1,15 @@
 import { withRouter } from 'next/router';
 import _ from 'lodash';
 import MainLayout from '../layouts/main-layout';
-import PostListItem from '../components/Post/PostListItem';
-import posts from '../data/posts'
+import MovieListItem from '../components/Movie/MovieListItem';
 
 const Movie = (props) => {
     
-    const {slug} = props.router.query;
-    let post = _.find(posts, {slug});
+    const {id} = props.router.query;
 
-    if(!post){
+    let m = null;
+
+    if(!m){
         return  <MainLayout><p>404 - Movie Not Found</p></MainLayout>
     }
 
@@ -18,7 +18,7 @@ const Movie = (props) => {
             <h1>Movie</h1>
             <hr/>
             <div className="row">
-                <PostListItem post={post}/>
+                <MovieListItem movie={m}/>
             </div>
         </MainLayout>
     );

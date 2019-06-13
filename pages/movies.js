@@ -1,5 +1,5 @@
 import MainLayout from '../layouts/main-layout';
-import PostListItem from '../components/Post/PostListItem';
+import MovieListItem from '../components/Movie/MovieListItem';
 import fetch from 'isomorphic-unfetch';
 
 const Movies = (props) => {
@@ -11,7 +11,7 @@ const Movies = (props) => {
         <h1>Movies</h1>
         <hr/>
         <div className="row">
-            {movies.map((m,i) => <PostListItem key={i} post={m}/>)}
+            {movies.map((m,i) => <MovieListItem key={i} movie={m}/>)}
         </div>
     </MainLayout>
   );
