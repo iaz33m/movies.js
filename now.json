@@ -1,0 +1,8 @@
+{
+    "version": 2,
+    "alias": "firstapp-project",
+    "name": "firstapp-project",
+    "builds": [
+        { "src": "next.config.js", "use": "@now/next" }
+    ]
+}
